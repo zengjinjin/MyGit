@@ -1,4 +1,4 @@
-package com.zjj.cosco.view;
+package com.zjj.cosco;
 
 import android.app.Activity;
 import android.content.Context;
@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.zjj.cosco.R;
 import com.zjj.cosco.utils.GuideUtil;
+import com.zjj.cosco.view.CameraTopRectView;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -178,7 +180,8 @@ public class RectCameraActivity extends Activity implements SurfaceHolder.Callba
                 takeTxt.setText("确定");
 
                 Bitmap sizeBitmap = Bitmap.createScaledBitmap(bitmap, topView.getViewWidth(), topView.getViewHeight(), true);
-                bm = Bitmap.createBitmap(sizeBitmap, topView.getRectLeft(),
+                bm = Bitmap.createBitmap(sizeBitmap,
+                        topView.getRectLeft(),
                         topView.getRectTop(),
                         topView.getRectRight() - topView.getRectLeft(),
                         topView.getRectBottom() - topView.getRectTop());// 截取

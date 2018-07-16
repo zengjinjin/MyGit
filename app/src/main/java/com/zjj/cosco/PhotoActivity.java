@@ -39,7 +39,7 @@ public class PhotoActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeStream(fis);
             // 矩阵
             Matrix matrix = new Matrix();
-            matrix.setRotate(90);
+//            matrix.setRotate(90);
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
                     bitmap.getHeight(), matrix, true);
             Log.e("zjj","bitmap.getWidth()="+bitmap.getWidth());

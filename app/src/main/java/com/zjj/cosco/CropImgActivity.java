@@ -53,7 +53,7 @@ public class CropImgActivity extends AppCompatActivity implements View.OnClickLi
         mCropLayout = (RelativeLayout) findViewById(R.id.crop_handler_layout);
 
         //要裁剪的图片
-        mCropBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.crop);
+        mCropBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.crop1);
         mCorpImg.setImageBitmap(mCropBitmap);
 
         mCropBtn.setOnClickListener(this);
@@ -74,7 +74,6 @@ public class CropImgActivity extends AppCompatActivity implements View.OnClickLi
                         break;
                     case MotionEvent.ACTION_POINTER_UP:
                         //次要点松开
-                        Log.d("CropHandlerActivity", "ACTION_POINTER_UP");
                         isPointer = true;
                         if (isPointer && isMain) {
                             isPointer = false;
