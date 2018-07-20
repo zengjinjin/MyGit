@@ -1,6 +1,8 @@
-package com.example.floatviewdemo.service;
+package com.zjj.cosco.service;
 
-import com.example.floatviewdemo.R;
+import com.zjj.cosco.R;
+import com.zjj.cosco.utils.GuideUtil;
+import com.zjj.cosco.utils.ScreenParam;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -24,12 +26,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB) public class FloatViewService extends Service {
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public class FloatViewService extends Service {
 
 	private static final String TAG = "FloatViewService";
 	// 定义浮动窗口布局
 	private LinearLayout mFloatLayout;
-	private WindowManager.LayoutParams wmParams;
+	private LayoutParams wmParams;
 	// 创建浮动窗口设置布局参数的对象
 	private WindowManager mWindowManager;
 
@@ -52,10 +55,9 @@ import android.widget.Toast;
 	@SuppressWarnings("static-access")
 	@SuppressLint("InflateParams")
 	private void createFloatView() {
-		wmParams = new WindowManager.LayoutParams();
+		wmParams = new LayoutParams();
 		// 通过getApplication获取的是WindowManagerImpl.CompatModeWrapper
-		mWindowManager = (WindowManager) getApplication().getSystemService(
-				getApplication().WINDOW_SERVICE);
+		mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
 		// 设置window type
 		wmParams.type = LayoutParams.TYPE_PHONE;
 		// 设置图片格式，效果为背景透明
@@ -68,18 +70,16 @@ import android.widget.Toast;
 		wmParams.x = 0;
 		wmParams.y = 150;
 		// 设置悬浮窗口长宽数据
-		wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-		wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+		wmParams.width = LayoutParams.WRAP_CONTENT;
+		wmParams.height = LayoutParams.WRAP_CONTENT;
 
 		LayoutInflater inflater = LayoutInflater.from(getApplication());
 		// 获取浮动窗口视图所在布局
-		mFloatLayout = (LinearLayout) inflater.inflate(
-				R.layout.alert_window_menu, null);
+		mFloatLayout = (LinearLayout) inflater.inflate(R.layout.alert_window_menu, null);
 		// 添加mFloatLayout
 		mWindowManager.addView(mFloatLayout, wmParams);
 		// 浮动窗口按钮
-		mFloatView = (ImageButton) mFloatLayout
-				.findViewById(R.id.alert_window_imagebtn);
+		mFloatView = mFloatLayout.findViewById(R.id.alert_window_imagebtn);
 
 		mFloatLayout.measure(View.MeasureSpec.makeMeasureSpec(0,
 				View.MeasureSpec.UNSPECIFIED), View.MeasureSpec
@@ -110,11 +110,12 @@ import android.widget.Toast;
 					// getRawX是触摸位置相对于屏幕的坐标，getX是相对于按钮的坐标
 					int distanceX = (int) (event.getRawX()-rawX);
 					int distanceY = (int) (event.getRawY()-rawY);
-					leftDistance = (int) event.getRawX()
-							+ mFloatView.getMeasuredWidth() / 2;
+					leftDistance = (int) event.getRawX() + mFloatView.getMeasuredWidth() / 2;
 					
-					wmParams.x = wmParams.x-distanceX;
-					wmParams.y = wmParams.y-distanceY;
+//					wmParams.x = wmParams.x-distanceX;
+//					wmParams.y = wmParams.y-distanceY;
+					wmParams.x = (int) (screenWidth - event.getRawX() - mFloatView.getMeasuredWidth() / 2);
+					wmParams.y = (int) (screenHeight - event.getRawY() - mFloatView.getMeasuredWidth() / 2);
 					// 刷新
 					mWindowManager.updateViewLayout(mFloatLayout, wmParams);
 					rawX = event.getRawX();
@@ -123,7 +124,7 @@ import android.widget.Toast;
 				case MotionEvent.ACTION_UP:
 					Log.e(TAG, "ACTION_UP");
 					myCountDownTimer.start();
-					if(wmParams.x>leftDistance){
+					if(wmParams.x>screenWidth/2){
 						wmParams.x = screenWidth-mFloatView.getMeasuredWidth() / 2;
 					}else{
 						wmParams.x = 0;

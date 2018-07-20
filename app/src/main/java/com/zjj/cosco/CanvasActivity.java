@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -64,6 +65,15 @@ public class CanvasActivity extends Activity {
 
         });
 //        GuideUtil.getInstance().initGuide(this, R.drawable.guide);
+        ViewTreeObserver observer = canvas1.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @SuppressWarnings("deprecation")
+            public void onGlobalLayout() {
+                canvas1.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                GuideUtil.getInstance().initGuide(CanvasActivity.this, R.drawable.guide);
+            }
+        });
     }
 
     private Bitmap drawSTOReverseText(String charge, int width, int height, float textSize, boolean up) {

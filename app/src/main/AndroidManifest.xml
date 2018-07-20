@@ -21,12 +21,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CanvasActivity">
-
-        </activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".CanvasActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".PhotoActivity"
             android:label="@string/title_activity_photo"
@@ -58,16 +61,17 @@
         <activity
             android:name=".ImportExcelActivity"
             android:screenOrientation="portrait">
-
         </activity>
         <activity
             android:name=".ClipPictureActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity
+            android:name=".FloatBallActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoDisplay">
+        </activity>
+        <service android:name="com.zjj.cosco.service.FloatViewService"/>
     </application>
 
 </manifest>
