@@ -37,9 +37,10 @@ dependencies {
     compile 'org.greenrobot:greendao-generator:3.2.2'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'me.dm7.barcodescanner:zxing:1.9.8'
+    compile 'com.yanzhenjie:permission:1.1.0'
 
 }

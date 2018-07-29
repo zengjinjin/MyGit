@@ -15,8 +15,9 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+
 import com.zjj.cosco.view.ClipView;
-import java.io.ByteArrayOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -67,7 +68,7 @@ public class ClipPictureActivity extends Activity implements View.OnTouchListene
             public void onGlobalLayout() {
                 srcPic.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 initClipView(srcPic.getTop());
-                Log.i("zjj","top="+srcPic.getTop());
+                Log.i("zjj","top1="+srcPic.getTop());
             }
         });
 
@@ -81,7 +82,7 @@ public class ClipPictureActivity extends Activity implements View.OnTouchListene
      * @param top
      */
     private void initClipView(int top) {
-        bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.crop1);
+        bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.crop2);
         clipview = new ClipView(ClipPictureActivity.this);
         clipview.setCustomTopBarHeight(top);
         clipview.addOnDrawCompleteListener(new ClipView.OnDrawListenerComplete() {

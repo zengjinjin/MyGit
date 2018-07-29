@@ -1,5 +1,6 @@
 package com.zjj.cosco;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -20,7 +22,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.zjj.cosco.R;
+
+import com.zjj.cosco.permission.PermissionActivity;
+import com.zjj.cosco.permission.PermissionListener;
 import com.zjj.cosco.utils.GuideUtil;
 import com.zjj.cosco.view.CameraTopRectView;
 
@@ -39,18 +43,14 @@ import java.util.List;
  * Created by administrator on 2018/7/9.
  */
 
-public class RectCameraActivity extends Activity implements SurfaceHolder.Callback, View.OnClickListener {
-
+public class RectCameraActivity extends PermissionActivity implements SurfaceHolder.Callback, View.OnClickListener {
     private SurfaceView mySurfaceView = null;
     private SurfaceHolder mySurfaceHolder = null;
     private CameraTopRectView topView = null; //自定义顶层view
-
     private Camera myCamera = null;
     private Camera.Parameters myParameters;
-
     private TextView takeTxt;
     private TextView cancelTxt;
-
     private boolean isPreviewing = false;
     private Bitmap bm;
     private static final String IMG_PATH = "SHZQ";
@@ -83,7 +83,18 @@ public class RectCameraActivity extends Activity implements SurfaceHolder.Callba
         cancelTxt.setOnClickListener(this);
 
         topView.draw(new Canvas());
-        initCamera();
+        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE},
+                new PermissionListener() {
+                    @Override
+                    public void permissionGranted() {
+                        initCamera();
+                    }
+
+                    @Override
+                    public void permissionDenied() {
+                        Toast.makeText(RectCameraActivity.this, "相机权限被拒绝", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override
@@ -331,9 +342,10 @@ public class RectCameraActivity extends Activity implements SurfaceHolder.Callba
                         myCamera.startPreview();
                         isPreviewing = true;
                         takeTxt.setText("拍照");
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
+                        Log.i("zjj","=============e.getMessage()================"+e.getMessage());
                     }
                 }
                 break;

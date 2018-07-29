@@ -22,13 +22,6 @@ public class FloatBallActivity extends Activity {
         Intent intent = new Intent(FloatBallActivity.this, FloatViewService.class);
         //启动FloatViewService
         startService(intent);
-
-        Intent intent1 = new Intent(this, MainActivity.class);
-        intent1.putExtra("id", 12);
-        intent1.putExtra("orderNumber", "568007150032");
-        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent1.setPackage(getPackageName());
-        Log.d("zjj", ">>>>>>>>>>intentStr<<<<<<<<<<< = " + intent1.toUri(Intent.URI_INTENT_SCHEME));
     }
 
     @Override
