@@ -83,11 +83,30 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
         cancelTxt.setOnClickListener(this);
 
         topView.draw(new Canvas());
-        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE},
+    }
+
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 new PermissionListener() {
                     @Override
                     public void permissionGranted() {
-                        initCamera();
+                        if (myCamera == null) {
+                            initCamera();
+                        }
+                        try {
+                            myCamera.setPreviewDisplay(mySurfaceHolder);
+                            myCamera.startPreview();
+                            isPreviewing = true;
+                            takeTxt.setClickable(true);
+                            cancelTxt.setClickable(true);
+                            takeTxt.setText("拍照");
+                            Log.i("zjj","onResume()");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
@@ -95,15 +114,6 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
                         Toast.makeText(RectCameraActivity.this, "相机权限被拒绝", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-        if (myCamera == null) {
-            initCamera();
-        }
     }
 
     @Override
@@ -139,6 +149,7 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
     public void surfaceCreated(SurfaceHolder holder) {
         // TODO Auto-generated method stub
         try {
+            Log.i("zjj","surfaceCreated()");
             if(myCamera == null){
                 return;
             }
@@ -234,12 +245,9 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
 
     public Camera.Size getPropPreviewSize(List<Camera.Size> list, int minWidth, int minHeight) {
         Collections.sort(list, sizeComparator);
-        Log.i("zjj", "PreviewSize : minWidth = " + minWidth);
         int i = 0;
         for (Camera.Size s : list) {
-            Log.i("zjj", "PreviewSize : width = " + s.width + "height = " + s.height);
             if ((s.height == minWidth) && s.width >= minHeight) {
-                Log.i("zjj", "PreviewSize : w = " + s.width + "h = " + s.height);
                 break;
             }
             i++;
@@ -255,9 +263,7 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
 
         int i = 0;
         for (Camera.Size s : list) {
-            Log.i("zjj", "PictureSize : width = " + s.width + "height = " + s.height);
             if (s.height == minHeight && s.width == minWidth) {
-                Log.i("zjj", "PictureSize : w = " + s.width + "h = " + s.height);
                 break;
             }
             i++;
@@ -319,13 +325,15 @@ public class RectCameraActivity extends PermissionActivity implements SurfaceHol
                             e.printStackTrace();
                         }
                         //返回数据
-                        Intent intent = new Intent();
+                        Intent intent = new Intent(RectCameraActivity.this, PhotoActivity.class);
+                        intent.putExtra("path", file.getAbsolutePath());
                         intent.setData(uri);
                         Bundle bundle = new Bundle();
                         intent.putExtras(bundle);
-                        setResult(0x1001, intent);
+//                        setResult(0x1001, intent);
+                        startActivity(intent);
                     }
-                    finish();
+//                    finish();
                 }
                 break;
             case R.id.txt_cancel:
