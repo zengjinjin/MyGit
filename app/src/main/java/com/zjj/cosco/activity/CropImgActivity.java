@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,13 +8,14 @@ import android.graphics.PointF;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.zjj.cosco.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

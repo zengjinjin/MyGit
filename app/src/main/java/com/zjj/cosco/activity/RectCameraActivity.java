@@ -1,7 +1,6 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,7 +12,6 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -23,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.permission.PermissionActivity;
 import com.zjj.cosco.permission.PermissionListener;
 import com.zjj.cosco.utils.GuideUtil;

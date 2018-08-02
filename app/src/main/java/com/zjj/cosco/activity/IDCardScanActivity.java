@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -40,6 +40,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.zjj.cosco.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

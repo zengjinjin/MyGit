@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.view.ClipView;
 
 import java.io.File;

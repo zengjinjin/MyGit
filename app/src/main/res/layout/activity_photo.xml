@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.zjj.cosco.PhotoActivity">
+    tools:context="com.zjj.cosco.activity.PhotoActivity">
 
     <TextView
         android:id="@+id/tv_path"

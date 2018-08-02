@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zjj.cosco.MyApplication;
+import com.zjj.cosco.R;
 import com.zjj.cosco.adapter.GreenDaoAdapter;
 
 import java.util.ArrayList;

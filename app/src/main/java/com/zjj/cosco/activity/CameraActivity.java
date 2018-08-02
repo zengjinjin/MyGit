@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.camera.CameraPreview;
 
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.utils.AppDownloadManager;
 
 /**

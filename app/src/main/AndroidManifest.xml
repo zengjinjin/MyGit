@@ -22,25 +22,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CanvasActivity">
+        <activity android:name=".activity.CanvasActivity">
 
         </activity>
         <activity
-            android:name=".PhotoActivity"
+            android:name=".activity.PhotoActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".RectCameraActivity"
+            android:name=".activity.RectCameraActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".DownloadActivity"
+            android:name=".activity.DownloadActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".AndroidOPermissionActivity"
+            android:name=".activity.AndroidOPermissionActivity"
             android:screenOrientation="portrait"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -52,20 +52,20 @@
                 android:resource="@xml/provider_paths" />
         </provider>
         <activity
-            android:name=".CropImgActivity"
+            android:name=".activity.CropImgActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ImportExcelActivity"
+            android:name=".activity.ImportExcelActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ClipPictureActivity"
+            android:name=".activity.ClipPictureActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".FloatBallActivity"
+            android:name=".activity.FloatBallActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoDisplay">
         </activity>

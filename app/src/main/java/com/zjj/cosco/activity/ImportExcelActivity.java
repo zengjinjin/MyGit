@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.utils.FileUtils;
-import com.zjj.cosco.utils.ImportExcelUtils;
 
 /**
  * Created by administrator on 2018/7/11.

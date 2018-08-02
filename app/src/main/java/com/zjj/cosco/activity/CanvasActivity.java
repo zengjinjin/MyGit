@@ -1,4 +1,4 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,21 +11,18 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.zjj.cosco.R;
 import com.zjj.cosco.utils.FileUtils;
 import com.zjj.cosco.utils.GuideUtil;
-
-import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

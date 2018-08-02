@@ -10,14 +10,12 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.zjj.cosco.CameraActivity;
-import com.zjj.cosco.PhotoActivity;
+import com.zjj.cosco.activity.PhotoActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.List;
 
 /**

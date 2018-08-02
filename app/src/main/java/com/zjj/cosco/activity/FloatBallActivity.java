@@ -1,10 +1,10 @@
-package com.zjj.cosco;
+package com.zjj.cosco.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
+import com.zjj.cosco.R;
 import com.zjj.cosco.service.FloatViewService;
 import com.zjj.cosco.utils.ScreenParam;
 

@@ -18,7 +18,7 @@ import android.util.Log;
 import android.webkit.URLUtil;
 import android.widget.Toast;
 
-import com.zjj.cosco.AndroidOPermissionActivity;
+import com.zjj.cosco.activity.AndroidOPermissionActivity;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
