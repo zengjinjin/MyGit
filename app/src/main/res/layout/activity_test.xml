@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:orientation="vertical">
 
     <Button
         android:layout_width="match_parent"
@@ -11,4 +11,38 @@
         android:textSize="20sp"
         android:text="备份通讯录" />
 
-</RelativeLayout>
+    <com.zjj.cosco.view.MyNinePhotoView
+        android:id="@+id/photoview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="65dp">
+
+        <View
+            android:layout_width="101dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="#ff0000"
+            />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="#00ff00"
+            />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="#0000ff"
+            />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="#000000"
+            />
+
+    </com.zjj.cosco.view.MyNinePhotoView>
+
+</LinearLayout>
