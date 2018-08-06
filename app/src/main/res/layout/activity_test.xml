@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:onClick="click"
         android:textSize="20sp"
+        android:visibility="gone"
         android:text="备份通讯录" />
 
     <com.zjj.cosco.view.MyNinePhotoView
@@ -16,11 +17,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="65dp">
+        android:padding="5dp"
+        android:background="#e6e6e6">
 
         <View
-            android:layout_width="101dp"
-            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
             android:layout_margin="5dp"
             android:background="#ff0000"
             />
