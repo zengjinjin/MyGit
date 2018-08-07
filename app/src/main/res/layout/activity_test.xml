@@ -12,7 +12,7 @@
         android:visibility="gone"
         android:text="备份通讯录" />
 
-    <com.zjj.cosco.view.MyNinePhotoView
+    <com.zjj.cosco.view.NineGridView
         android:id="@+id/photoview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,6 +45,6 @@
             android:background="#000000"
             />
 
-    </com.zjj.cosco.view.MyNinePhotoView>
+    </com.zjj.cosco.view.NineGridView>
 
 </LinearLayout>
