@@ -1,7 +1,10 @@
 package com.zjj.cosco.view;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,6 +15,7 @@ import com.socks.library.KLog;
  */
 
 public class NineGridView extends ViewGroup {
+    private OnTagClickListener onTagClickListener;
 
     public NineGridView(Context context) {
         this(context, null);
@@ -19,6 +23,10 @@ public class NineGridView extends ViewGroup {
 
     public NineGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    public void setOnTagClickListener(OnTagClickListener onTagClickListener) {
+        this.onTagClickListener = onTagClickListener;
     }
 
     @Override
@@ -83,6 +91,57 @@ public class NineGridView extends ViewGroup {
             MyLayoutParams params = (MyLayoutParams) childView.getLayoutParams();
             childView.layout(params.left, params.top, params.left + childWidth, params.top + childHeight);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        KLog.i("zjj","event.getAction()="+event.getAction());
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+                View view = findChildView(x, y);
+                int position = findChildViewPosition(view);
+                if (onTagClickListener != null){
+                    onTagClickListener.onTagClick(position);
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    private View findChildView(int x, int y){
+        for (int i = 0; i < getChildCount(); i++){
+            View childView = getChildAt(i);
+            if (childView.getVisibility() == VISIBLE){
+                Rect rect = new Rect();
+                childView.getHitRect(rect);
+                if (rect.contains(x, y)){
+                    return childView;
+                }
+            }
+        }
+        return null;
+    }
+
+    private int findChildViewPosition(View view){
+        if (view == null){
+            return -1;
+        }
+        for (int i = 0; i < getChildCount(); i++){
+            if (view == getChildAt(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public interface OnTagClickListener {
+
+        boolean onTagClick(int position);
+
+        void onSelected(SparseArray<View> selectedViews);
+
     }
 
     private static class MyLayoutParams extends MarginLayoutParams{

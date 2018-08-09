@@ -2,6 +2,7 @@ package com.zjj.cosco.view;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
 import com.zjj.cosco.R;
@@ -12,12 +13,14 @@ import com.zjj.cosco.permission.PermissionListener;
  * Created by administrator on 2018/7/23.
  */
 
-public class TestActivity extends PermissionActivity {
+public class TestActivity extends PermissionActivity implements NineGridView.OnTagClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        NineGridView nineGridView = findViewById(R.id.photoview);
+        nineGridView.setOnTagClickListener(this);
     }
 
     public void click(View view) {
@@ -34,5 +37,16 @@ public class TestActivity extends PermissionActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onTagClick(int position) {
+        Toast.makeText(TestActivity.this, "postion="+position, Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+    @Override
+    public void onSelected(SparseArray<View> selectedViews) {
+
     }
 }

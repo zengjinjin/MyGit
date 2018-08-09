@@ -102,6 +102,11 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity
+            android:name=".activity.SnowBallActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

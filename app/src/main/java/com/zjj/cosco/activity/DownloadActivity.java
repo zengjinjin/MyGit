@@ -48,7 +48,8 @@ public class DownloadActivity extends Activity {
         switch (view.getId()) {
             case R.id.download:
                 Toast.makeText(DownloadActivity.this, "开始下载", Toast.LENGTH_SHORT).show();
-                String apkUrl = "https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk";
+//                String apkUrl = "https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk";
+                String apkUrl = "http://ckd.so/4ak6Xlg";
 //                downloadBySystem(apkUrl, "", "");
                 showUpdateDialog(apkUrl);
                 break;
