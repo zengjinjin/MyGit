@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="114dp"
+    android:background="#f2f2f2"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e6e6e6"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+                <EditText
+                    android:id="@+id/et_comment"
+                    tools:hint="写下评论"
+                    tools:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/shape_white"
+                    android:gravity="start"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="10dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#989898"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tv_niming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_send"
+                    android:layout_below="@+id/et_comment"
+                    android:layout_marginTop="14dp"
+                    android:drawableLeft="@drawable/check_box_circle_default"
+                    android:drawablePadding="5dp"
+                    android:text="匿名"
+                    android:textColor="#989898"
+                    android:textSize="14sp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/et_comment"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_btn_gray1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center"
+                    android:text="发送"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"/>
+        </RelativeLayout>
+</LinearLayout>
