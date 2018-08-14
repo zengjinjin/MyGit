@@ -15,7 +15,7 @@ import java.io.IOException;
 public class CompressImageUtils {
 
     /**
-     *
+     * 质量压缩
      * @param filePath 本地路径
      * @param targetPath 压缩后路径
      * @param quality 压缩质量
